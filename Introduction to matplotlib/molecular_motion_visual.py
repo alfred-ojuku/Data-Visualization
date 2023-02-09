@@ -1,18 +1,18 @@
 import matplotlib.pyplot as plt
-from random_walks import RandomWalk
+from mod_random_walk import RandomWalk
 
 #Keep making random walks as long as the program is active
 while True:
     #make a random walk
-    rw = RandomWalk(50000)
-    rw.fill_walks()
+    rw = RandomWalk(5000)
+    rw.fill_walk()
 
     #plotting the points in the walk
     plt.style.use('classic')
 
     fig, ax = plt.subplots(figsize=(10,6))
     point_numbers = range(rw.num_points)
-    ax.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues, edgecolors='none', s=1)
+    ax.plot(rw.x_values, rw.y_values, linewidth=2)
 
     #Emphasizing the first as last points
     ax.scatter(0, 0, c='green', edgecolor='none', s=100)
